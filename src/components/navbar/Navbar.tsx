@@ -6,6 +6,8 @@ import Search from "./Search";
 import UserMenu from "./UserMenu";
 import { safeUser } from "@/app/types";
 
+import Categories from "./Categories";
+
 interface NavbarProps {
   currentUser?: safeUser | null;
 }
@@ -22,6 +24,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };

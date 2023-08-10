@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { toast } from "react-hot-toast";
 
-
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
@@ -73,7 +72,7 @@ const ListingClient = ({
       .then(() => {
         toast.success("Listing reserved!");
         setDateRange(initialDateRange);
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Something went wrong");

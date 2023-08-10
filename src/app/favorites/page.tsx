@@ -5,20 +5,28 @@ import getFavoriteListings from "../actions/getFavoriteListings";
 import { Container } from "postcss";
 import FavoritesClient from "./FavoritesClient";
 
+import ClientOnly from "@/components/ClientOnly";
+
 const Favorites = async () => {
   const listings = await getFavoriteListings();
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
     return (
-      <EmptyState
-        title="No favorites found"
-        subtitle="Looks like you have no favorite listings."
-      />
+      <ClientOnly>
+        <EmptyState
+          title="No favorites found"
+          subtitle="Looks like you have no favorite listings."
+        />
+      </ClientOnly>
     );
   }
 
-  return <FavoritesClient listings={listings} currentUser={currentUser} />;
+  return (
+    <ClientOnly>
+      <FavoritesClient listings={listings} currentUser={currentUser} />
+    </ClientOnly>
+  );
 };
 
 export default Favorites;

@@ -10,7 +10,7 @@ interface ListingHeadProps {
   imageSrc: string;
   locationValue: string;
   id: string;
-  currentUser: safeUser | null;
+  currentUser: safeUser | null | undefined;
 }
 
 const ListingHead = ({
